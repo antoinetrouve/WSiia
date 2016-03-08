@@ -30,6 +30,7 @@
 -(Weather*) extract:(NSDictionary *) json {
     Weather* weather = nil;
     if (json != nil) {
+        weather = [Weather new];
         //tableau de json
         NSArray *weathers = [json objectForKey:@"weather"];
         
