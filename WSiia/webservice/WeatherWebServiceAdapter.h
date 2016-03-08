@@ -12,6 +12,6 @@
 @interface WeatherWebServiceAdapter : NSObject
 
 -(void) getWeather:(void (^)(Weather *)) callback;
--(Weather*) extract:(NSDictionary)
+-(Weather*) extract:(NSDictionary *) json;
 
 @end

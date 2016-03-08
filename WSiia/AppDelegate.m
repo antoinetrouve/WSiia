@@ -21,11 +21,10 @@
     
     void (^callback)(Weather*) = ^(Weather* weather){
         NSLog(weather.description);
-    }
+    };
     
     WeatherWebServiceAdapter* wsAdapter = [WeatherWebServiceAdapter new];
     [wsAdapter getWeather:callback];
-    };
     
 // --OU--
 //    WeatherWebServiceAdapter* wsAdapter = [WeatherWebServiceAdapter new];
