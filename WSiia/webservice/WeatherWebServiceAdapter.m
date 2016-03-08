@@ -13,12 +13,13 @@
 
 -(void) getWeather:(void (^)(Weather *)) callback {
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-    NSString* URL = @"http://api.openweathermap.org/data/2.5/weather?q=london";
+    NSString* URL = @"http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=44db6a862fba0b067b1930da0d769e98";
     
     [manager GET:URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         Weather* weather = [self extract:responseObject];
         callback(weather);
-        NSLog(@"JSON : %@", responseObject);
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Error : %@", error);
         callback(nil);
