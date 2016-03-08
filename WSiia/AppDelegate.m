@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WeatherWebServiceAdapter.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    return YES;
+    
+    void (^callback)(Weather*) = ^(Weather weather){
+        NSLog(weather.description);
+    };
+    
+    WeatherWebServiceAdapter* wsAdapter = [WeatherWebServiceAdapter new];
+    [wsAdapter getWeather:^(Weather * weather) {
+        NSLog(weather.description);
+    }];
+    
+
+//    WeatherWebServiceAdapter* wsAdapter = [WeatherWebServiceAdapter new];
+//    [wsAdapter getWeather:^(Weather * weather) {
+//        NSLog(weather.description);
+//    }];
+        return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
