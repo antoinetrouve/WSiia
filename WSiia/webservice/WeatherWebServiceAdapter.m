@@ -13,7 +13,7 @@
 
 -(void) getWeather:(void (^)(Weather *)) callback {
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-    NSString* URL = @"https://www.raywenderlich.com/demos/weather_sample/weather.php?format=json";
+    NSString* URL = @"http://api.openweathermap.org/data/2.5/weather?q=london";
     
     [manager GET:URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         Weather* weather = [self extract:responseObject];
@@ -29,10 +29,16 @@
 -(Weather*) extract:(NSDictionary *) json {
     Weather* weather = nil;
     if (json != nil) {
-        NSDictionary *weathers = [json objectForKey:@"weather"];
-        weather.idServer = [[weathers objectForKey:@"id"] intValue];
-        weather.description = [weathers objectForKey:@"description"];
-        weather.main = [weathers objectForKey:@"main"];
+        //tableau de json
+        NSArray *weathers = [json objectForKey:@"weather"];
+        
+        //le json est en format NSDictionary
+        // index 0 car un seul tableau dans le flux json sinon faire une boucle foreach
+        NSDictionary* weatherDic = [weathers objectAtIndex:0];
+        
+        weather.idServer = [[weatherDic objectForKey:@"id"] intValue];
+        weather.description = [weatherDic objectForKey:@"description"];
+        weather.main = [weatherDic objectForKey:@"main"];
     }
     return weather;
 }
