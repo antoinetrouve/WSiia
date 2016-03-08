@@ -31,6 +31,7 @@
 		EC9BD4A81C8EC35D0080E40B /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BD4991C8EC35D0080E40B /* UIWebView+AFNetworking.m */; };
 		EC9BD4AC1C8EC92B0080E40B /* WeatherWebServiceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BD4AB1C8EC92B0080E40B /* WeatherWebServiceAdapter.m */; };
 		EC9BD4B31C8ECADC0080E40B /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BD4B21C8ECADC0080E40B /* Weather.m */; };
+		EC9BD4B71C8EEDBA0080E40B /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BD4B61C8EEDBA0080E40B /* WeatherViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		EC9BD4AB1C8EC92B0080E40B /* WeatherWebServiceAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherWebServiceAdapter.m; path = webservice/WeatherWebServiceAdapter.m; sourceTree = "<group>"; };
 		EC9BD4B11C8ECADC0080E40B /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weather.h; path = Entity/Weather.h; sourceTree = "<group>"; };
 		EC9BD4B21C8ECADC0080E40B /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weather.m; path = Entity/Weather.m; sourceTree = "<group>"; };
+		EC9BD4B51C8EEDBA0080E40B /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherViewController.h; path = view/WeatherViewController.h; sourceTree = "<group>"; };
+		EC9BD4B61C8EEDBA0080E40B /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherViewController.m; path = view/WeatherViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 		EC9BD45B1C8EC25F0080E40B /* WSiia */ = {
 			isa = PBXGroup;
 			children = (
+				EC9BD4B41C8EED860080E40B /* view */,
 				EC9BD4B01C8ECAC20080E40B /* Entity */,
 				EC9BD4A91C8EC8DC0080E40B /* webservice */,
 				EC9BD4761C8EC2690080E40B /* libs */,
@@ -215,6 +219,15 @@
 			name = Entity;
 			sourceTree = "<group>";
 		};
+		EC9BD4B41C8EED860080E40B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EC9BD4B51C8EEDBA0080E40B /* WeatherViewController.h */,
+				EC9BD4B61C8EEDBA0080E40B /* WeatherViewController.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,6 +313,7 @@
 				EC9BD4A21C8EC35D0080E40B /* AFNetworkActivityIndicatorManager.m in Sources */,
 				EC9BD4A51C8EC35D0080E40B /* UIImageView+AFNetworking.m in Sources */,
 				EC9BD4AC1C8EC92B0080E40B /* WeatherWebServiceAdapter.m in Sources */,
+				EC9BD4B71C8EEDBA0080E40B /* WeatherViewController.m in Sources */,
 				EC9BD4A41C8EC35D0080E40B /* UIButton+AFNetworking.m in Sources */,
 				EC9BD4A71C8EC35D0080E40B /* UIRefreshControl+AFNetworking.m in Sources */,
 				EC9BD4A81C8EC35D0080E40B /* UIWebView+AFNetworking.m in Sources */,
