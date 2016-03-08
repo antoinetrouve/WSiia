@@ -67,14 +67,28 @@
     
 }
 
+-(void) updateWeather:(Weather *)weather withCallback:(void(^)(Weather *))callback{
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    NSString* URL = WeatherWebServiceAdapter.JSON_URL;
+    //parameters = flux json / pogress = method qui sera lancé pendant le traitement
+    [manager PUT:URL parameters:[self itemToJson:weather] success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        Weather* weather = [self extract:responseObject];
+        callback(weather);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Error : %@", error);
+        callback(nil);
+    }];
+    
+}
+
 -(NSDictionary *) itemToJson:(Weather *) weather{
     NSDictionary* result = nil;
     if (weather != nil) {
         result = [NSDictionary dictionaryWithObjectsAndKeys:
+                  [NSNumber numberWithInt:weather.idServer], WeatherWebServiceAdapter.JSON_ID,
                   weather.description, WeatherWebServiceAdapter.JSON_DESCRIPTION,
                   weather.main, WeatherWebServiceAdapter.JSON_MAIN, nil];
     }
-    
     return result;
 }
 @end
