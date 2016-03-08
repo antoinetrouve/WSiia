@@ -19,21 +19,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    void (^callback)(Weather*) = ^(Weather weather){
+    void (^callback)(Weather*) = ^(Weather* weather){
         NSLog(weather.description);
-    };
+    }
     
     WeatherWebServiceAdapter* wsAdapter = [WeatherWebServiceAdapter new];
-    [wsAdapter getWeather:^(Weather * weather) {
-        NSLog(weather.description);
-    }];
+    [wsAdapter getWeather:callback];
+    };
     
-
+// --OU--
 //    WeatherWebServiceAdapter* wsAdapter = [WeatherWebServiceAdapter new];
 //    [wsAdapter getWeather:^(Weather * weather) {
 //        NSLog(weather.description);
 //    }];
-        return YES;
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
